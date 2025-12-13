@@ -1,0 +1,13 @@
+<div class="page">
+    <app-page-header title="Central de Atendimento" subtitle="Gerenciamento de tickets de serviço"
+        logoSrc="assets/images/cni-logo.svg">
+    </app-page-header>
+    <section class="search-bar">
+        <app-search-input (search)="onSearch($event)">
+        </app-search-input>
+    </section>
+    <section class="table-wrapper">
+        <app-ticket-table [tickets]="tickets" [loading]="loading" [globalFilter]="filterValue">
+        </app-ticket-table>
+    </section>
+</div>

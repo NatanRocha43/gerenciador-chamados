@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "title": "Erro de acesso ao sistema",
+    "description": "Usuário relata erro 500 ao acessar o sistema.",
+    "category": "Sistema"
+  },
+  {
+    "id": 2,
+    "title": "Computador não liga",
+    "description": "Estação de trabalho não apresenta nenhum sinal de energia.",
+    "category": "Hardware"
+  },
+  {
+    "id": 3,
+    "title": "Problema na impressora",
+    "description": "A impressora do departamento financeiro não está imprimindo.",
+    "category": "Periféricos"
+  },
+  {
+    "id": 4,
+    "title": "Acesso ao e-mail bloqueado",
+    "description": "Usuário não consegue acessar o e-mail corporativo.",
+    "category": "Acesso"
+  }
+]

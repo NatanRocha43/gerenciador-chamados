@@ -1,0 +1,54 @@
+.table-card {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+}
+
+:host ::ng-deep {
+    .p-datatable {
+        border: none;
+
+        thead th {
+            background-color: #f9fafb;
+            border-bottom: 2px solid #9ca3af;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        tbody {
+            td {
+                border-bottom: 1px solid #e5e7eb;
+                color: #1f2937;
+            }
+
+            tr:hover {
+                background-color: #f1f5f9;
+            }
+        }
+    }
+}
+
+.title-cell {
+    font-weight: 500;
+}
+
+.description-cell {
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+.category-badge {
+    display: inline-block;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background-color: #e6f0ff;
+    color: #003a8f;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.empty {
+    text-align: center;
+    padding: 1.5rem;
+    color: #9ca3af;
+}

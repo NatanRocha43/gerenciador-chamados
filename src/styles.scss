@@ -1,2 +1,12 @@
-@import "primeicons/primeicons.css";
-@import "primeflex/primeflex.css";
+:root {
+    --cni-blue: #003a8f;
+    --cni-blue-light: #e6f0ff;
+}
+
+body {
+    margin: 0;
+    background-color: #f4f6f8;
+    font-family: Inter, Roboto, Arial, sans-serif;
+    color: #1f2937;
+    background-color: #e5eaf0;
+}
