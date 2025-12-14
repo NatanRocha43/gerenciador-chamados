@@ -11,6 +11,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TextareaModule } from 'primeng/textarea';
 import { SelectModule } from 'primeng/select';
 import { ButtonModule } from 'primeng/button';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-ticket-create',
@@ -22,7 +24,8 @@ import { ButtonModule } from 'primeng/button';
     InputTextModule,
     TextareaModule,
     SelectModule,
-    ButtonModule
+    ButtonModule,
+    ToastModule
   ],
   templateUrl: './ticket-create.component.html',
   styleUrls: ['./ticket-create.component.scss']
@@ -43,22 +46,35 @@ export class TicketCreateComponent {
 
   constructor(
     private ticketService: TicketService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {}
 
   salvar() {
     if (!this.title || !this.description || !this.category) {
+      this.messageService.add({
+        severity: 'error',
+        summary: 'Erro',
+        detail: 'Preencha todos os campos obrigatórios.'
+      });
       return;
     }
 
-    this.ticketService.addTicket({
-      id: Date.now(),
-      title: this.title,
-      description: this.description,
-      category: this.category
+   this.ticketService.addTicket({
+  title: this.title,
+  description: this.description,
+  category: this.category
+});
+
+    this.messageService.add({
+      severity: 'success',
+      summary: 'Chamado criado',
+      detail: 'O chamado foi criado com sucesso!'
     });
 
-    this.router.navigate(['/tickets']);
+    setTimeout(() => {
+      this.router.navigate(['/tickets']);
+    }, 800);
   }
 
   voltar() {

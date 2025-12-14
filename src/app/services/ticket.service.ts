@@ -10,30 +10,38 @@ export class TicketService {
   private ticketsSubject = new BehaviorSubject<Ticket[]>([]);
   tickets$ = this.ticketsSubject.asObservable();
 
+  private nextId = 1;
+
   constructor() {
     this.loadMock();
   }
 
   private async loadMock() {
     try {
-      console.log('Carregando mock...');
       const response = await fetch('/mock/tickets.json');
-
-      if (!response.ok) {
-        throw new Error('Erro ao buscar JSON');
-      }
-
       const data: Ticket[] = await response.json();
-      console.log('Mock carregado:', data);
 
       this.ticketsSubject.next(data);
+
+      // 🔑 Define o próximo ID corretamente
+      const maxId = data.length
+        ? Math.max(...data.map(ticket => ticket.id))
+        : 0;
+
+      this.nextId = maxId + 1;
+
     } catch (error) {
       console.error('Erro ao carregar mock de tickets', error);
     }
   }
 
-  addTicket(ticket: Ticket) {
+  addTicket(ticket: Omit<Ticket, 'id'>) {
+    const newTicket: Ticket = {
+      ...ticket,
+      id: this.nextId++
+    };
+
     const current = this.ticketsSubject.value;
-    this.ticketsSubject.next([...current, ticket]);
+    this.ticketsSubject.next([...current, newTicket]);
   }
 }
