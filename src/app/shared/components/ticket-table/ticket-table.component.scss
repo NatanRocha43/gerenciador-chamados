@@ -1,6 +1,4 @@
 .ticket-table {
-
-  /* ===== DESKTOP ===== */
   .p-datatable-thead > tr > th {
     background: #f8fafc;
     color: #374151;
@@ -36,18 +34,15 @@
   }
 }
 
-/* ===== MOBILE ===== */
 @media (max-width: 768px) {
-
   .ticket-table {
-
     .p-datatable-tbody > tr {
       display: block;
       margin-bottom: 1rem;
       border-radius: 12px;
       background: #ffffff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-      padding: 0.75rem;
+      padding: 1rem;
+      border: 1px solid #374151;
     }
 
     .p-datatable-tbody > tr > td {
@@ -74,10 +69,12 @@
 
     .title {
       font-size: 0.9rem;
+      text-align: left;
     }
 
     .description {
       font-size: 0.85rem;
+      text-align: left;
     }
   }
 }

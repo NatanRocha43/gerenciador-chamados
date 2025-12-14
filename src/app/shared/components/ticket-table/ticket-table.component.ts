@@ -7,7 +7,8 @@ import { Ticket } from '../../../core/models/ticket.model';
   selector: 'app-ticket-table',
   standalone: true,
   imports: [CommonModule, TableModule],
-  templateUrl: './ticket-table.component.html'
+  templateUrl: './ticket-table.component.html',
+  styleUrls: ['./ticket-table.component.scss']
 })
 export class TicketTableComponent {
 
