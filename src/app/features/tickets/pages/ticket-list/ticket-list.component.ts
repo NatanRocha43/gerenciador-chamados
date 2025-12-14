@@ -4,6 +4,8 @@ import { Ticket } from '../../../../core/models/ticket.model';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { ButtonModule } from 'primeng/button';
 
 import { PageHeaderComponent } from '../../../../shared/components/page-header/page-header.component';
 import { SearchInputComponent } from '../../../../shared/components/search-input/search-input.component';
@@ -13,7 +15,7 @@ import { TicketTableComponent } from '../../../../shared/components/ticket-table
 @Component({
     standalone: true,
     selector: 'app-ticket-list',
-    imports: [CommonModule, TableModule, CardModule, PageHeaderComponent, SearchInputComponent, TicketTableComponent],
+    imports: [CommonModule, TableModule, CardModule,RouterModule, ButtonModule, PageHeaderComponent, SearchInputComponent, TicketTableComponent],
     templateUrl: './ticket-list.component.html',
     styleUrls: ['./ticket-list.component.scss']
 })
