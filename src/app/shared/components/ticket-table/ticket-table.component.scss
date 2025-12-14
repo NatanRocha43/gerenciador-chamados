@@ -1,54 +1,83 @@
-.table-card {
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #d1d5db;
-}
+.ticket-table {
 
-:host ::ng-deep {
-    .p-datatable {
-        border: none;
+  /* ===== DESKTOP ===== */
+  .p-datatable-thead > tr > th {
+    background: #f8fafc;
+    color: #374151;
+    font-weight: 600;
+    padding: 1rem;
+    border: none;
+  }
 
-        thead th {
-            background-color: #f9fafb;
-            border-bottom: 2px solid #9ca3af;
-            font-weight: 600;
-            color: #374151;
-        }
+  .p-datatable-tbody > tr > td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    vertical-align: top;
+  }
 
-        tbody {
-            td {
-                border-bottom: 1px solid #e5e7eb;
-                color: #1f2937;
-            }
+  .title {
+    font-weight: 600;
+    color: #111827;
+  }
 
-            tr:hover {
-                background-color: #f1f5f9;
-            }
-        }
-    }
-}
+  .description {
+    color: #4b5563;
+    line-height: 1.4;
+  }
 
-.title-cell {
-    font-weight: 500;
-}
-
-.description-cell {
-    font-size: 0.9rem;
-    color: #6b7280;
-}
-
-.category-badge {
+  .category-chip {
     display: inline-block;
-    padding: 0.3rem 0.75rem;
+    padding: 0.35rem 0.75rem;
     border-radius: 999px;
-    background-color: #e6f0ff;
-    color: #003a8f;
+    background: #e3f2fd;
+    color: #1e40af;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
+  }
 }
 
-.empty {
-    text-align: center;
-    padding: 1.5rem;
-    color: #9ca3af;
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+
+  .ticket-table {
+
+    .p-datatable-tbody > tr {
+      display: block;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      padding: 0.75rem;
+    }
+
+    .p-datatable-tbody > tr > td {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 0.5rem 0;
+      border: none;
+    }
+
+    .p-datatable-tbody > tr > td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #6b7280;
+      font-size: 0.75rem;
+      margin-right: 1rem;
+    }
+
+    .value {
+      text-align: right;
+      max-width: 65%;
+      color: #111827;
+    }
+
+    .title {
+      font-size: 0.9rem;
+    }
+
+    .description {
+      font-size: 0.85rem;
+    }
+  }
 }

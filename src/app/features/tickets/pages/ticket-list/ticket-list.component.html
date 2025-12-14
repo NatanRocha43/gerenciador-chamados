@@ -1,20 +1,27 @@
-<div class="page">
-    <app-page-header title="Central de Atendimento" subtitle="Gerenciamento de tickets de serviço"
-        logoSrc="assets/images/cni-logo.svg">
-    </app-page-header>
-   <section class="search-bar actions">
-  <app-search-input (search)="onSearch($event)"></app-search-input>
+<app-page-header
+  title="Chamados"
+  subtitle="Gerenciamento de chamados de serviço">
+</app-page-header>
 
+<div class="actions-bar">
+
+  <app-search-input
+    (searchChange)="onSearch($event)">
+  </app-search-input>
+
+  <!-- BOTÃO COM CLICK -->
   <button
     pButton
-    label="Novo Ticket"
+    type="button"
+    label="Novo chamado"
     icon="pi pi-plus"
-    class="cni-button"
-    routerLink="/tickets/new"
-  ></button>
-</section>
-    <section class="table-wrapper">
-        <app-ticket-table [tickets]="tickets" [loading]="loading" [globalFilter]="filterValue">
-        </app-ticket-table>
-    </section>
+    class="p-button-primary"
+    (click)="irParaCriarChamado()">
+  </button>
+
 </div>
+
+<app-ticket-table
+  *ngIf="tickets$ | async as tickets"
+  [tickets]="tickets">
+</app-ticket-table>

@@ -1,27 +1,15 @@
-import { Component, Input, ViewChild } from '@angular/core';
-import { Table } from 'primeng/table';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
-import { CardModule } from 'primeng/card';
 import { Ticket } from '../../../core/models/ticket.model';
 
 @Component({
-    selector: 'app-ticket-table',
-    standalone: true,
-    imports: [CommonModule, TableModule, CardModule],
-    templateUrl: './ticket-table.component.html',
-    styleUrls: ['./ticket-table.component.scss']
+  selector: 'app-ticket-table',
+  standalone: true,
+  imports: [CommonModule, TableModule],
+  templateUrl: './ticket-table.component.html'
 })
 export class TicketTableComponent {
-    @Input() tickets: Ticket[] = [];
-    @Input() loading = false;
-    @Input() globalFilter = '';
 
-    @ViewChild('table') table!: Table;
-
-    ngOnChanges(): void {
-        if (this.table) {
-            this.table.filterGlobal(this.globalFilter, 'contains');
-        }
-    }
+  @Input() tickets: Ticket[] = [];
 }

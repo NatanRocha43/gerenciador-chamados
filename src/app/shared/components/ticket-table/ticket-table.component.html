@@ -1,35 +1,41 @@
-<p-card class="table-card">
-    <p-table #table [value]="tickets" [loading]="loading" [paginator]="true" [rows]="5" [responsiveLayout]="'scroll'"
-        dataKey="id" [globalFilterFields]="['title', 'description', 'category']"
-        styleClass="p-datatable-striped p-datatable-gridlines">
-        <ng-template pTemplate="header">
-            <tr>
-                <th>ID</th>
-                <th>Título</th>
-                <th>Descrição</th>
-                <th>Categoria</th>
-            </tr>
-        </ng-template>
+<p-table
+  [value]="tickets"
+  [paginator]="true"
+  [rows]="10"
+  responsiveLayout="stack"
+  breakpoint="768px"
+  styleClass="p-datatable-responsive-stack ticket-table"
+  emptyMessage="Nenhum chamado encontrado">
 
-        <ng-template pTemplate="body" let-ticket>
-            <tr>
-                <td>{{ ticket.id }}</td>
-                <td class="title-cell">{{ ticket.title }}</td>
-                <td class="description-cell">{{ ticket.description }}</td>
-                <td>
-                    <span class="category-badge">
-                        {{ ticket.category }}
-                    </span>
-                </td>
-            </tr>
-        </ng-template>
+  <!-- HEADER (desktop) -->
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Título</th>
+      <th>Descrição</th>
+      <th>Categoria</th>
+    </tr>
+  </ng-template>
 
-        <ng-template pTemplate="emptymessage">
-            <tr>
-                <td colspan="4" class="empty">
-                    Nenhum ticket encontrado
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-</p-card>
+  <!-- BODY -->
+  <ng-template pTemplate="body" let-ticket>
+    <tr class="ticket-row">
+      <td data-label="ID">
+        <span class="value">{{ ticket.id }}</span>
+      </td>
+
+      <td data-label="Título">
+        <span class="value title">{{ ticket.title }}</span>
+      </td>
+
+      <td data-label="Descrição">
+        <span class="value description">{{ ticket.description }}</span>
+      </td>
+
+      <td data-label="Categoria">
+        <span class="category-chip">{{ ticket.category }}</span>
+      </td>
+    </tr>
+  </ng-template>
+
+</p-table>
