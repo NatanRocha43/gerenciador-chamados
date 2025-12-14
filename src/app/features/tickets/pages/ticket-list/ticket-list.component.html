@@ -1,0 +1,27 @@
+<app-page-header
+  title="Chamados"
+  subtitle="Gerenciamento de chamados de serviço">
+</app-page-header>
+
+<div class="actions-bar">
+
+  <app-search-input
+    (searchChange)="onSearch($event)">
+  </app-search-input>
+
+  <!-- BOTÃO COM CLICK -->
+  <button
+    pButton
+    type="button"
+    label="Novo chamado"
+    icon="pi pi-plus"
+    class="p-button-primary"
+    (click)="irParaCriarChamado()">
+  </button>
+
+</div>
+
+<app-ticket-table
+  *ngIf="tickets$ | async as tickets"
+  [tickets]="tickets">
+</app-ticket-table>

@@ -1,17 +1,22 @@
-import { ApplicationConfig } from '@angular/core';
-import { routes } from './app.routes';
-import { provideRouter } from '@angular/router';
-
+import { ApplicationConfig, importProvidersFrom } from '@angular/core';
 import { providePrimeNG } from 'primeng/config';
-import Aura from '@primeuix/themes/aura';
+import { MessageService } from 'primeng/api';
+import Lara from '@primeuix/themes/lara';
+import { FormsModule } from '@angular/forms';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
+    importProvidersFrom(FormsModule),
+
     providePrimeNG({
       theme: {
-        preset: Aura
+        preset: Lara,
+        options: {
+          darkModeSelector: false
+        }
       }
-    })
+    }),
+
+    MessageService // 👈 OBRIGATÓRIO PARA TOAST
   ]
 };

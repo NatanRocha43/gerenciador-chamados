@@ -1,0 +1,29 @@
+.search-input {
+    width: 320px;
+
+    .p-inputtext {
+        width: 100%;
+        height: 38px;
+        padding-left: 2.5rem;
+        border-radius: 6px;
+        border: 1px solid #d1d5db;
+        font-size: 0.9rem;
+
+        &:focus {
+            border-color: #003a8f;
+            box-shadow: 0 0 0 1px rgba(0, 58, 143, 0.15);
+        }
+    }
+
+    .pi {
+        left: 0.75rem;
+        font-size: 0.9rem;
+        color: #6b7280;
+    }
+}
+
+@media (max-width: 640px) {
+    .search-input {
+        width: 100%;
+    }
+}

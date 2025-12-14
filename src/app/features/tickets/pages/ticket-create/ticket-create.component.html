@@ -1,0 +1,100 @@
+<app-page-header
+  title="Novo chamado"
+  subtitle="Abertura de chamado de serviço">
+</app-page-header>
+
+<!-- TOAST -->
+<p-toast position="top-right"></p-toast>
+
+<div class="form-wrapper">
+
+  <form
+    #ticketForm="ngForm"
+    class="form-card"
+    (ngSubmit)="salvar()">
+
+    <!-- TÍTULO -->
+    <div class="form-field">
+      <label for="title">Título</label>
+      <input
+        id="title"
+        pInputText
+        type="text"
+        name="title"
+        required
+        [(ngModel)]="title"
+        #titleCtrl="ngModel"
+        placeholder="Ex: Erro ao acessar o sistema" />
+
+      <small class="error"
+        *ngIf="titleCtrl.invalid && (titleCtrl.touched || ticketForm.submitted)">
+        O título é obrigatório.
+      </small>
+    </div>
+
+    <!-- DESCRIÇÃO -->
+    <div class="form-field">
+      <label for="description">Descrição</label>
+      <textarea
+        id="description"
+        pTextarea
+        rows="4"
+        name="description"
+        required
+        [(ngModel)]="description"
+        #descriptionCtrl="ngModel"
+        placeholder="Descreva o problema com mais detalhes">
+      </textarea>
+
+      <small class="error"
+        *ngIf="descriptionCtrl.invalid && (descriptionCtrl.touched || ticketForm.submitted)">
+        A descrição é obrigatória.
+      </small>
+    </div>
+
+    <!-- CATEGORIA -->
+    <div class="form-field">
+      <label for="category">Categoria</label>
+      <p-select
+        id="category"
+        name="category"
+        required
+        [options]="categories"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Selecione uma categoria"
+        [(ngModel)]="category"
+        #categoryCtrl="ngModel">
+      </p-select>
+
+      <small class="error"
+        *ngIf="categoryCtrl.invalid && (categoryCtrl.touched || ticketForm.submitted)">
+        A categoria é obrigatória.
+      </small>
+    </div>
+
+    <!-- AÇÕES -->
+    <div class="form-actions">
+
+      <button
+        pButton
+        type="button"
+        label="Voltar"
+        icon="pi pi-arrow-left"
+        class="p-button-text"
+        (click)="voltar()">
+      </button>
+
+      <button
+        pButton
+        type="submit"
+        label="Salvar chamado"
+        icon="pi pi-check"
+        class="p-button-primary">
+      </button>
+
+    </div>
+
+  </form>
+
+</div>
